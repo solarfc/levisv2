@@ -1,0 +1,64 @@
+/*
+    gallery style
+ */
+
+.gallery {
+  background: $dark-grey;
+  padding: 35px 0;
+
+  &__content {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1920px;
+    padding: 0 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+    
+    a {
+      width: 18.72%;
+      max-width: 350px;
+      position: relative;
+
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+        width: auto;
+      }
+
+      img {
+        width: 100%;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: url("../img/zoom.png") no-repeat center/cover;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:hover {
+
+        img {
+          filter: blur(2px);
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

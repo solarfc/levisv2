@@ -1,0 +1,206 @@
+/*
+    video style
+ */
+
+.video {
+  background: $dark-grey;
+  padding-bottom: 41px;
+
+  &__content {
+    position: relative;
+
+    img.boot {
+      position: absolute;
+      top: -62px;
+      left: -55px;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    figure.clip {
+      width: 600px;
+      height: 350px;
+      position: relative;
+      top: -21px;
+      margin-left: auto;
+      cursor: pointer;
+
+      img {
+        filter: blur(2px);
+        transition: all 0.5s ease-in-out;
+        z-index: 11;
+      }
+
+      .video-play {
+        width: 79px;
+        height: 78px;
+        background: url("../img/video/video-play.png") no-repeat center/cover;
+        box-shadow: $shadow2;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 12;
+        transition: all 0.5s ease-in-out;
+      }
+
+      &:hover {
+
+        img {
+          filter: blur(0px);
+        }
+
+        .video-play {
+
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            transform: translate(-50%, -50%) scale(1.2);
+          }
+        }
+      }
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        background: url("../img/pine-cone.png") no-repeat center/cover;
+        position: absolute;
+        cursor: auto;
+      }
+
+      &:before {
+        width: 628px;
+        height: 420px;
+        top: -113px;
+        left: -270px;
+      }
+
+      &:after {
+        width: 312px;
+        height: 208.67px;
+        transform: rotate(158.95deg);
+        bottom: -120.8px;
+        right: 25.13px;
+      }
+    }
+
+    h4 {
+      max-width: 517px;
+      margin: 87px 0 45px;
+    }
+
+    &-block {
+      box-sizing: border-box;
+      padding: 0 18.6% 0 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      figure {
+
+        span {
+          display: block;
+          width: 70px;
+          height: 70px;
+          background: #364a59;
+          border-radius: 50%;
+          margin: 0 auto 11px;
+          position: relative;
+
+          &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            bottom: 2px;
+            right: 2px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+
+        p {
+          text-align: center;
+          color: $light-blue;
+        }
+
+        &:first-child {
+          margin-top: 67px;
+
+          span {
+
+            &:after {
+              width: 35px;
+              height: 42px;
+              background-image: url("../img/video/1.png");
+              bottom: 1.6px;
+              right: 7px;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+
+          span {
+
+            &:after {
+              background-image: url("../img/video/2.png");
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          margin-top: 70px;
+
+          span {
+
+            &:after {
+              background-image: url("../img/video/3.png");
+              right: 4px;
+            }
+          }
+        }
+
+        &:last-child {
+
+          span {
+
+            &:after {
+              width: 72px;
+              height: 71px;
+              background-image: url("../img/video/4.png");
+              bottom: -7.44px;
+              right: -10.3px;
+            }
+          }
+        }
+      }
+    }
+
+    &:before, &:after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+
+    &:before {
+      width: 433px;
+      height: 108px;
+      background: url("../img/video/levis.png") no-repeat center/cover;
+      top: 78px;
+      left: -178px;
+    }
+
+    &:after {
+      width: 370px;
+      height: 739px;
+      background: url("../img/video/man.png") no-repeat center/cover;
+      top: -100px;
+      right: -136px;
+      z-index: 12;
+      pointer-events: none;
+    }
+  }
+}

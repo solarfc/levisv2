@@ -1,0 +1,96 @@
+/*
+    review start
+ */
+
+.review {
+  background: $dark-grey;
+  padding: 42px 0 84px;
+
+  &__content {
+    position: relative;
+
+    h4 {
+      text-align: center;
+    }
+
+    &-slider {
+      margin: 85px auto 65px;
+
+      &__item {
+        display: flex !important;
+        justify-content: space-between;
+
+        figure {
+          width: 50%;
+
+          p {
+            color: $light-blue;
+            width: 84%;
+            max-width: 600px;
+          }
+
+          h6 {
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+
+    p.feed {
+      color: $yellow;
+      cursor: pointer;
+      text-decoration: underline;
+      position: absolute;
+      bottom: 17px;
+      right: 309px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &-nav {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 104px;
+
+      .prev-arrow, .next-arrow {
+        width: 50px;
+        height: 50px;
+        background: $light-blue;
+        border-radius: 50%;
+        box-shadow: $shadow2;
+        cursor: pointer;
+        position: relative;
+
+        &:after {
+          content: "";
+          display: block;
+          width: 15px;
+          height: 27px;
+          background: url("../img/arrow.png") no-repeat center/cover;
+          position: absolute;
+          top: 12px;
+          left: 15px;
+        }
+      }
+
+      .next-arrow {
+        transform: scale(-1, 1);
+      }
+    }
+
+    &:before {
+      content: "";
+      display: block;
+      width: 863px;
+      height: 625px;
+      background: url("../img/catalog/4.png") no-repeat center/cover;
+      position: absolute;
+      top: -78px;
+      right: -425.78px;
+    }
+  }
+}

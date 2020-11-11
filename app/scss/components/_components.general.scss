@@ -1,0 +1,275 @@
+/*
+    general style
+ */
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: $r, sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+
+  @include mq(xlg) {
+    width: 1140px;
+  }
+
+  @include mq(lg) {
+    width: 960px;
+  }
+
+  @include mq(md) {
+    width: 720px;
+  }
+
+  @include mq(s) {
+    width: 94%;
+  }
+
+  @include mq(xs) {
+    width: 90.625%;
+  }
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+
+  &:active, &:focus {
+    outline: none;
+  }
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+  user-select: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: $b, sans-serif;
+  line-height: 1;
+}
+
+h1, h2 {
+  font-size: 64px;
+  text-transform: uppercase;
+  color: $white;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+h4 {
+  font-size: 30px;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: $white;
+
+  span {
+    color: $button-hover;
+  }
+}
+
+h5 {
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+h6 {
+  font-family: $m, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: $white;
+
+  span, output {
+    color: $yellow;
+  }
+}
+
+p {
+
+  &.big {
+    font-size: 20px;
+    line-height: 21px;
+  }
+
+  &.small {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  &.quote {
+    font-size: 26px;
+    line-height: 27px;
+    color: $light-blue;
+    max-width: 567px;
+  }
+}
+
+.delivery, .header__info {
+  display: flex;
+  justify-content: space-between;
+
+  h6 {
+
+    &:nth-child(2) {
+      position: relative;
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: $light-blue;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+      }
+
+      &:before {
+        left: -44px;
+      }
+
+      &:after {
+        right: -44px;
+      }
+    }
+  }
+}
+.delivery {
+  max-width: 534px;
+
+  h6 {
+
+    &:nth-child(2) {
+
+      &:before {
+        left: -36px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.price {
+
+  span {
+    line-height: 1;
+
+    &.new-price {
+      font-family: $b, sans-serif;
+      font-size: 60px;
+      color: $yellow;
+    }
+
+    &.old-price {
+      font-family: $m, sans-serif;
+      font-size: 30px;
+      color: $light-blue;
+      display: inline-block;
+      position: relative;
+      margin-left: 3px;
+
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: $light-blue;
+        position: absolute;
+        top: 57%;
+        left: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.sale {
+  width: 100px;
+  height: 100px;
+  background: $color-gradient;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 15;
+
+  h3 {
+    color: $yellow;
+    text-shadow: $shadow2;
+    transform: rotate(-11.36deg);
+    position: absolute;
+    top: 35.16px;
+    left: 15.25px;
+  }
+}
+
+a.to-order, .form-group button {
+  font-family: $b, sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $white;
+  text-shadow: $shadow2;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: $shadow1;
+  transition: all 0.75s ease-in-out;
+}
+
+a.to-order {
+  max-width: 320px;
+  padding: 25px 0 16px;
+  background: $dark-red;
+  position: relative;
+  z-index: 9;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: $color-gradient;
+    border-radius: inherit;
+    transition: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  &:hover {
+    box-shadow: $inner-shadow;
+
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+p.start {
+  width: 15px;
+  height: 14.31px;
+  background: url("../img/catalog/star.svg") no-repeat center/cover;
+}

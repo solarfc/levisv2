@@ -1,0 +1,87 @@
+/*
+    footer style
+ */
+
+.footer {
+  background: $dark-grey;
+  padding: 48px 0 20px;
+
+  &__content {
+    position: relative;
+
+    h2 {
+      position: relative;
+      z-index: 9;
+    }
+
+    p.quote {
+      margin: 29px 0 43px;
+    }
+
+    &-img {
+      position: absolute;
+      bottom: -15px;
+      right: 146px;
+
+      img {
+        position: relative;
+        z-index: 9;
+      }
+
+      .sale {
+        top: 153px;
+        right: 55px;
+      }
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        width: 450px;
+        height: 369px;
+        background: url("../img/fir.png") no-repeat center/contain;
+        position: absolute;
+      }
+
+      &:before {
+        top: -13px;
+        left: -34px;
+        transform: scale(1, -1);
+      }
+
+      &:after {
+        height: 327px;
+        bottom: 1px;
+        right: -272.57px;
+        transform: scale(-1, -1);
+      }
+    }
+
+    .price {
+
+    }
+
+    a.to-order {
+      margin: 10px 0;
+    }
+
+    h6 {
+      text-transform: uppercase;
+      max-width: 320px;
+      text-align: center;
+
+      &:first-of-type {
+
+      }
+
+      &:last-of-type {
+        color: $light-blue;
+        margin-top: 44px;
+
+        a {
+          display: inline-block;
+          color: inherit;
+        }
+      }
+    }
+  }
+}

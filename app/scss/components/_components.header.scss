@@ -1,0 +1,98 @@
+/*
+    header style
+ */
+
+.header {
+  background: url("../img/header/bg.png") no-repeat center/cover, $main-gradient;
+  padding: 39px 0 78px;
+
+  .delivery {
+    margin: 0 33px 0 auto;
+  }
+
+  &__content {
+    margin: 127px 0 150px 0;
+    position: relative;
+
+    h1 {
+      text-align: right;
+      position: relative;
+      right: -21px;
+    }
+
+    p.quote {
+      margin: 31px 0 37px auto;
+    }
+
+    &-img {
+      position: absolute;
+      top: -143px;
+      left: 64px;
+
+      img {
+
+        &.photo {
+          filter: drop-shadow($shadow2);
+          position: relative;
+          z-index: 9;
+
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            box-shadow: $shadow2;
+          }
+        }
+
+        &.logo {
+          position: absolute;
+          top: 34px;
+          left: -48px;
+        }
+
+        &.shoe {
+          position: absolute;
+          bottom: -150px;
+          left: -255px;
+          z-index: 11;
+        }
+      }
+
+      .sale {
+        bottom: -29px;
+        right: -36px;
+      }
+
+      &:before, &:after {
+        content: "";
+        display: block;
+        width: 580px;
+        height: 503px;
+        background: url("../img/fir.png") no-repeat center/contain;
+        position: absolute;
+      }
+
+      &:before {
+        bottom: -161.58px;
+        left: -273px;
+      }
+
+      &:after {
+        top: -39px;
+        right: -279.63px;
+        transform: scale(-1, -1);
+      }
+
+    }
+
+    .price {
+      margin-left: 52.75%;
+    }
+
+    a.to-order {
+      margin: 19px 0 0 52.75%;
+    }
+  }
+
+  &__info {
+    max-width: 957px;
+    margin: 0 34px 0 auto;
+  }
+}
