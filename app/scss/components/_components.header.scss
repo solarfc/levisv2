@@ -6,28 +6,87 @@
   background: url("../img/header/bg.png") no-repeat center/cover, $main-gradient;
   padding: 39px 0 78px;
 
+  @include mq(md) {
+    padding: 20px 0 42px;
+  }
+
   .delivery {
     margin: 0 33px 0 auto;
+
+    @include mq(lg) {
+      margin: 0 auto;
+    }
+
+    @include mq(s) {
+      display: none;
+    }
   }
 
   &__content {
-    margin: 127px 0 150px 0;
+    margin: 127px 0 170px 0;
     position: relative;
+
+    @include mq(lg) {
+      margin-bottom: 190px;
+    }
+
+    @include mq(md) {
+      margin: 27px auto 23px;
+    }
+
+    @include mq(s) {
+      margin-top: 0;
+    }
 
     h1 {
       text-align: right;
       position: relative;
       right: -21px;
+      z-index: 9;
+
+      @include mq(lg) {
+        right: 0;
+      }
+
+      @include mq(md) {
+        text-align: center;
+      }
     }
 
     p.quote {
       margin: 31px 0 37px auto;
+      position: relative;
+      z-index: 9;
+
+      @include mq(md) {
+        margin: 1px auto 17.85px;
+        text-align: center;
+      }
     }
 
     &-img {
       position: absolute;
       top: -143px;
       left: 64px;
+
+      @include mq(lg) {
+        width: 320px;
+        top: -83px;
+        left: 30px;
+      }
+
+      @include mq(md) {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0 auto;
+      }
+
+      @include mq(xs) {
+        width: 68%;
+        min-width: 200px;
+        margin: 0 2% 0 auto;
+      }
 
       img {
 
@@ -39,12 +98,28 @@
           @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             box-shadow: $shadow2;
           }
+
+          @include mq(lg) {
+            width: 100%;
+          }
         }
 
         &.logo {
           position: absolute;
           top: 34px;
           left: -48px;
+
+          @include mq(lg) {
+            width: 40px;
+            left: -38px;
+          }
+
+          @include mq(xs) {
+            width: 12%;
+            top: 16.15px;
+            left: -12%;
+            z-index: 12;
+          }
         }
 
         &.shoe {
@@ -52,12 +127,33 @@
           bottom: -150px;
           left: -255px;
           z-index: 11;
+
+          @include mq(xl) {
+            bottom: -260px;
+          }
+
+          @include mq(lg) {
+            width: 420px;
+            bottom: -170px;
+            left: -120px;
+          }
+
+          @include mq(xs) {
+            width: 137.5%;
+            bottom: -67.41px;
+            left: -59.17%;
+          }
         }
       }
 
       .sale {
         bottom: -29px;
         right: -36px;
+
+        @include mq(xs) {
+          bottom: -57.73px;
+          right: -9.92px;
+        }
       }
 
       &:before, &:after {
@@ -67,32 +163,124 @@
         height: 503px;
         background: url("../img/fir.png") no-repeat center/contain;
         position: absolute;
+
+        @include mq(lg) {
+          width: 276px;
+          height: 239px;
+        }
       }
 
       &:before {
         bottom: -161.58px;
         left: -273px;
+
+        @include mq(lg) {
+          bottom: -76.73px;
+          left: -129.64px;
+        }
       }
 
       &:after {
         top: -39px;
         right: -279.63px;
         transform: scale(-1, -1);
-      }
 
+        @include mq(lg) {
+          top: -18.52px;
+          right: -132.79px;
+        }
+      }
     }
 
     .price {
       margin-left: 52.75%;
+
+      @include mq(xl) {
+        margin-left: 50.75%;
+      }
+
+      @include mq(lg) {
+        margin-left: 40.75%;
+      }
+
+      @include mq(md) {
+        margin: 138.73px auto 13px;
+        text-align: center;
+      }
+
+      @include mq(xs) {
+        margin-top: 68.73px;
+      }
     }
 
     a.to-order {
       margin: 19px 0 0 52.75%;
+
+      @include mq(xl) {
+        margin-left: 50.75%;
+      }
+
+      @include mq(lg) {
+        margin-left: 40.75%;
+      }
+
+      @include mq(md) {
+        margin: 0 auto;
+      }
     }
   }
 
   &__info {
     max-width: 957px;
     margin: 0 34px 0 auto;
+
+    @include mq(lg) {
+      margin: 0 auto;
+    }
+
+    @include mq(md) {
+      text-align: center;
+    }
+
+    @include mq(s) {
+      display: block;
+    }
+
+    h6 {
+
+      &:nth-child(2) {
+
+        @include mq(s) {
+          margin: 42px auto;
+        }
+
+        &:before, &:after {
+
+          @include mq(md) {
+            opacity: 0;
+          }
+
+          @include mq(s) {
+            opacity: 1;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
+        &:before {
+
+          @include mq(s) {
+            top: -24px;
+          }
+        }
+
+        &:after {
+
+          @include mq(s) {
+            top: 35px;
+          }
+        }
+      }
+    }
   }
 }

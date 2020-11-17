@@ -15,13 +15,14 @@ body {
   font-family: $r, sans-serif;
   font-size: 18px;
   line-height: 20px;
+  color: $light-blue;
 }
 
 .container {
   width: 1200px;
   margin: 0 auto;
 
-  @include mq(xlg) {
+  @include mq(xl) {
     width: 1140px;
   }
 
@@ -38,7 +39,8 @@ body {
   }
 
   @include mq(xs) {
-    width: 90.625%;
+    width: 90%;
+    min-width: 290px;
   }
 }
 
@@ -68,6 +70,22 @@ h1, h2 {
   font-size: 64px;
   text-transform: uppercase;
   color: $white;
+
+  @include mq(lg) {
+    font-size: 62px;
+  }
+
+  @include mq(md) {
+    font-size: 64px;
+  }
+
+  @include mq(s) {
+    font-size: 50px;
+  }
+
+  @include mq(xs) {
+    font-size: 36px;
+  }
 }
 
 h3 {
@@ -79,6 +97,16 @@ h4 {
   line-height: 34px;
   text-transform: uppercase;
   color: $white;
+
+  @include mq(s) {
+    font-size: 27px;
+    line-height: 29px;
+  }
+
+  @include mq(xs) {
+    font-size: 24px;
+    line-height: 26px;
+  }
 
   span {
     color: $button-hover;
@@ -119,6 +147,16 @@ p {
     line-height: 27px;
     color: $light-blue;
     max-width: 567px;
+
+    @include mq(s) {
+      font-size: 23px;
+      line-height: 24px;
+    }
+
+    @include mq(xs) {
+      font-size: 20px;
+      line-height: 21px;
+    }
   }
 }
 
@@ -179,6 +217,10 @@ p {
       font-family: $b, sans-serif;
       font-size: 60px;
       color: $yellow;
+
+      @include mq(xs) {
+        font-size: 48px;
+      }
     }
 
     &.old-price {
@@ -188,6 +230,10 @@ p {
       display: inline-block;
       position: relative;
       margin-left: 3px;
+
+      @include mq(xs) {
+        font-size: 24px;
+      }
 
       &:after {
         content: "";
@@ -212,6 +258,11 @@ p {
   position: absolute;
   z-index: 15;
 
+  @include mq(xs) {
+    width: 89px;
+    height: 89px;
+  }
+
   h3 {
     color: $yellow;
     text-shadow: $shadow2;
@@ -219,6 +270,13 @@ p {
     position: absolute;
     top: 35.16px;
     left: 15.25px;
+
+    @include mq(xs) {
+      font-size: 36px;
+      line-height: 36px;
+      top: 28.16px;
+      left: 8.25px;
+    }
   }
 }
 
@@ -272,4 +330,58 @@ p.start {
   width: 15px;
   height: 14.31px;
   background: url("../img/catalog/star.svg") no-repeat center/cover;
+}
+
+a.bucket {
+  width: 100px;
+  height: 100px;
+  background: $color-gradient;
+  box-shadow: $shadow2;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+
+  @include mq(s) {
+    width: 75px;
+    height: 75px;
+    right: 15px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 48px;
+    background: url("../img/bucket.png") no-repeat center/cover;
+    position: absolute;
+    top: 28px;
+    left: 22px;
+
+    @include mq(s) {
+      width: 38px;
+      height: 36px;
+      top: 21px;
+      left: 16.5px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.body__filter {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: -5;
+  transition: all 0.5s ease-in-out;
 }

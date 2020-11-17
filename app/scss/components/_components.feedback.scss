@@ -1,0 +1,211 @@
+/*
+    feedback style
+ */
+
+.feedback {
+  box-sizing: border-box;
+  width: 668px;
+  padding: 58px 32px 32px 28px;
+  background: $white;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(-90deg);
+  z-index: -5;
+  transition: all 0.55s ease-in-out;
+  opacity: 0;
+
+  @include mq(md) {
+    height: auto;
+    max-height: 90%;
+    overflow-y: scroll;
+  }
+
+  @include mq(s) {
+    width: 90%;
+    min-width: 290px;
+  }
+
+  @include mq(xs) {
+    padding: 38px 15px 32px;
+  }
+
+
+  >p {
+    font-family: $r, sans-serif;
+    font-size: 26px;
+    line-height: 26px;
+    color: $dark-grey;
+    text-align: center;
+  }
+
+  span.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+
+    @include mq(xs) {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  form {
+    display: block;
+    transition: all .5s ease-in-out;
+    margin-top: 46px;
+
+    .rating {
+      display: flex;
+      align-items: center;
+      transition: all 0.5s ease-in-out;
+
+      p {
+        color: $light-blue;
+        margin-right: 19px;
+      }
+
+      &__area {
+        overflow: hidden;
+
+        &:not(:checked) > input {
+          display: none;
+        }
+
+        &:not(:checked) > label {
+          float: right;
+          cursor: pointer;
+          color: #444;
+        }
+
+        &:not(:checked) > label:before {
+          content: '★';
+        }
+
+        input:checked ~ label {
+          color: #ffc107;
+        }
+
+        &:not(:checked) > label:hover,
+        &:not(:checked) > label:hover ~ label {
+          color: #ffc107;
+        }
+
+        input:checked + label:hover,
+        input:checked + label:hover ~ label,
+        input:checked ~ label:hover,
+        input:checked ~ label:hover ~ label,
+        label:hover ~ input:checked ~ label {
+          color: #ffc107;
+        }
+
+        label:active {
+          position: relative;
+        }
+      }
+    }
+
+    .form-group {
+      transition: all 0.5s ease-in-out;
+
+      input {
+        font-family: $r, sans-serif;
+        font-size: 18px;
+        line-height: 20px;
+        color: $light-blue;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px 18px 14px;
+        background: $white;
+        border: 1px solid $light-blue;
+        border-radius: 2px;
+        transition: all 0.5s ease-in-out;
+
+        &::placeholder {
+          font-family: $r, sans-serif;
+          font-size: 18px;
+          line-height: 20px;
+          color: $light-blue;
+          opacity: 1;
+        }
+      }
+
+      textarea {
+        font-family: $r, sans-serif;
+        font-size: 18px;
+        line-height: 20px;
+        color: $light-blue;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px 18px 24px;
+        background: $white;
+        border: 1px solid $light-blue;
+        border-radius: 4px;
+        resize: none;
+
+        &::placeholder {
+          font-family: $r, sans-serif;
+          font-size: 18px;
+          line-height: 20px;
+          color: $light-blue;
+          opacity: 1;
+        }
+      }
+
+      button {
+        font-family: $b, sans-serif;
+        font-size: 24px;
+        line-height: 24px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #fff;
+        text-shadow: $shadow2;
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        padding: 20px 0 14px;
+        border: none;
+        background: $dark-red;
+        box-shadow: $shadow1;
+        border-radius: 10px;
+      }
+
+      &.name {
+        width: 300px;
+
+        @include mq(xs) {
+          width: 100%;
+        }
+      }
+
+      &.text {
+        width: 608px;
+        margin: 20px 0 35px;
+
+        @include mq(md) {
+          width: 100%;
+        }
+      }
+
+      &.send {
+        width: 280px;
+        position: absolute;
+        bottom: -91px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include mq(md) {
+          position: static;
+          transform: none;
+          margin: 31px auto 0;
+        }
+
+        @include mq(xs) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

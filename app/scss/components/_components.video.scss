@@ -6,6 +6,14 @@
   background: $dark-grey;
   padding-bottom: 41px;
 
+  @include mq(md) {
+    padding-bottom: 23px;
+  }
+
+  @include mq(xs) {
+    padding-bottom: 0;
+  }
+
   &__content {
     position: relative;
 
@@ -15,6 +23,10 @@
       left: -55px;
       z-index: 10;
       pointer-events: none;
+
+      @include mq(md) {
+        display: none;
+      }
     }
 
     figure.clip {
@@ -25,9 +37,25 @@
       margin-left: auto;
       cursor: pointer;
 
+      @include mq(md) {
+        top: -10px;
+        margin: 0 auto;
+      }
+
+      @include mq(s) {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        padding-bottom: 57%;
+      }
+
       img {
         filter: blur(2px);
         transition: all 0.5s ease-in-out;
+        z-index: 11;
+      }
+
+      iframe {
         z-index: 11;
       }
 
@@ -44,6 +72,11 @@
         pointer-events: none;
         z-index: 12;
         transition: all 0.5s ease-in-out;
+
+        @include mq(xs) {
+          width: 38px;
+          height: 37px;
+        }
       }
 
       &:hover {
@@ -73,6 +106,13 @@
         height: 420px;
         top: -113px;
         left: -270px;
+
+        @include mq(md) {
+          width: 202px;
+          height: 135px;
+          top: -40px;
+          left: -76px;
+        }
       }
 
       &:after {
@@ -81,12 +121,32 @@
         transform: rotate(158.95deg);
         bottom: -120.8px;
         right: 25.13px;
+
+        @include mq(xl) {
+          right: -110px;
+        }
+
+        @include mq(lg) {
+          right: -100px;
+        }
+
+        @include mq(md) {
+          width: 230px;
+          height: 153px;
+          bottom: -58.42px;
+          right: -85.29px;
+        }
       }
     }
 
     h4 {
-      max-width: 517px;
+      max-width: 528px;
       margin: 87px 0 45px;
+
+      @include mq(md) {
+        margin: 39px auto 32px;
+        text-align: center;
+      }
     }
 
     &-block {
@@ -96,7 +156,34 @@
       justify-content: space-between;
       align-items: flex-start;
 
+      @include mq(xl) {
+        padding-right: 13%;
+      }
+
+      @include mq(lg) {
+        padding-right: 22px;
+      }
+
+      @include mq(md) {
+        padding: 0;
+      }
+
+      @include mq(s) {
+        flex-wrap: wrap;
+      }
+
       figure {
+
+        @include mq(s) {
+          width: 47%;
+          margin-bottom: 40px;
+        }
+
+        @include mq(xs) {
+          width: 100%;
+          max-width: 240px;
+          margin: 0 auto 40px;
+        }
 
         span {
           display: block;
@@ -129,6 +216,10 @@
         &:first-child {
           margin-top: 67px;
 
+          @include mq(s) {
+            margin-top: 0;
+          }
+
           span {
 
             &:after {
@@ -154,6 +245,15 @@
         &:nth-child(3) {
           margin-top: 70px;
 
+          @include mq(s) {
+            margin-top: 0;
+            margin-bottom: 0;
+          }
+
+          @include mq(xs) {
+            margin-bottom: 40px;
+          }
+
           span {
 
             &:after {
@@ -164,6 +264,14 @@
         }
 
         &:last-child {
+
+          @include mq(s) {
+            margin-bottom: 0;
+          }
+
+          @include mq(xs) {
+            margin-bottom: 40px;
+          }
 
           span {
 
@@ -186,14 +294,32 @@
     }
 
     &:before {
+      /* скрыть на md */
       width: 433px;
       height: 108px;
       background: url("../img/video/levis.png") no-repeat center/cover;
       top: 78px;
       left: -178px;
+
+      @include mq(xxl) {
+        width: 333px;
+        height: 83px;
+        left: -75px;
+      }
+
+      @include mq(xl) {
+        width: 275px;
+        height: 68px;
+        left: 0;
+      }
+
+      @include mq(md) {
+        display: none;
+      }
     }
 
     &:after {
+      /* скрыть на lg */
       width: 370px;
       height: 739px;
       background: url("../img/video/man.png") no-repeat center/cover;
@@ -201,6 +327,24 @@
       right: -136px;
       z-index: 12;
       pointer-events: none;
+
+      @include mq(xxl) {
+        width: 300px;
+        height: 599px;
+        top: -85px;
+        right: -80px;
+      }
+
+      @include mq(xl) {
+        width: 250px;
+        height: 499px;
+        top: -55px;
+        right: -30px;
+      }
+
+      @include mq(lg) {
+        display: none;
+      }
     }
   }
 }

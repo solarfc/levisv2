@@ -6,16 +6,31 @@
   background: $dark-grey;
   padding: 48px 0 20px;
 
+  @include mq(md) {
+    padding: 28px 0 44px;
+  }
+
   &__content {
     position: relative;
 
     h2 {
       position: relative;
       z-index: 9;
+
+      @include mq(md) {
+        text-align: center;
+      }
     }
 
     p.quote {
       margin: 29px 0 43px;
+      position: relative;
+      z-index: 9;
+
+      @include mq(md) {
+        margin: 1px auto 20px;
+        text-align: center;
+      }
     }
 
     &-img {
@@ -23,14 +38,51 @@
       bottom: -15px;
       right: 146px;
 
+      @include mq(xl) {
+        right: 86px;
+      }
+
+      @include mq(lg) {
+        width: 500px;
+        right: -30px;
+      }
+
+      @include mq(md) {
+        position: relative;
+        top: 0;
+        left: calc(50% - 9px);
+        transform: translateX(-50%);
+      }
+
+      @include mq(xs) {
+        width: 94%;
+        min-width: 275px;
+        left: 1%;
+        transform: none;
+      }
+
       img {
         position: relative;
         z-index: 9;
+
+        @include mq(lg) {
+          width: 100%;
+        }
       }
 
       .sale {
         top: 153px;
         right: 55px;
+
+        @include mq(lg) {
+          top: 108.5px;
+          right: 32px;
+        }
+
+        @include mq(xs) {
+          top: -7px;
+          right: -10px;
+        }
       }
 
       &:before, &:after {
@@ -40,12 +92,22 @@
         height: 369px;
         background: url("../img/fir.png") no-repeat center/contain;
         position: absolute;
+
+        @include mq(xs) {
+          width: 206px;
+          height: 189px;
+        }
       }
 
       &:before {
         top: -13px;
         left: -34px;
         transform: scale(1, -1);
+
+        @include mq(xs) {
+          top: -6px;
+          left: -20px;
+        }
       }
 
       &:after {
@@ -53,15 +115,29 @@
         bottom: 1px;
         right: -272.57px;
         transform: scale(-1, -1);
+
+        @include mq(xs) {
+          height: 189px;
+          bottom: -19.05px;
+          right: -125.52px;
+        }
       }
     }
 
     .price {
 
+      @include mq(md) {
+        text-align: center;
+        margin: 32px auto 13px;
+      }
     }
 
     a.to-order {
       margin: 10px 0;
+
+      @include mq(md) {
+        margin: 0 auto;
+      }
     }
 
     h6 {
@@ -71,11 +147,18 @@
 
       &:first-of-type {
 
+        @include mq(md) {
+          margin: 13px auto 45px;
+        }
       }
 
       &:last-of-type {
         color: $light-blue;
         margin-top: 44px;
+
+        @include mq(md) {
+          margin: 0 auto;
+        }
 
         a {
           display: inline-block;

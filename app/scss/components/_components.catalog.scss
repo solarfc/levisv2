@@ -6,15 +6,53 @@
   background: $dark-grey;
   padding: 41px 0 91px;
 
+  @include mq(md) {
+    padding: 0 0 55px;
+  }
+
   .delivery {
     position: relative;
     left: calc(50% + 2px);
     transform: translateX(-50%);
+
+    @include mq(s) {
+      position: static;
+      margin: 0 auto;
+      transform: none;
+    }
+
+    @include mq(xs) {
+      display: block;
+      text-align: center;
+    }
+
+    h6 {
+
+      &:nth-child(2) {
+
+        @include mq(xs) {
+          margin-top: 42px;
+        }
+
+        &:before {
+
+          @include mq(xs) {
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+      }
+    }
   }
 
   h4 {
     text-align: center;
     margin: 15px auto 50px;
+
+    @include mq(md) {
+      margin: 47px auto 38px;
+    }
   }
 
   .price {
@@ -25,10 +63,17 @@
         font-size: 48px;
         color: $dark-red;
 
+        @include mq(xs) {
+          font-size: 36px;
+        }
       }
 
       &.old-price {
         font-size: 24px;
+
+        @include mq(xs) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -47,9 +92,8 @@
         width: 100%;
         padding: 24px 20px 14px;
         background: $white;
+        border-radius: inherit;
         border: none;
-        box-shadow: $shadow2;
-        border-radius: 5px;
 
         &::placeholder {
           font-family: $r, sans-serif;
@@ -73,12 +117,29 @@
           background: $button-hover;
         }
       }
+
+      &.name, &.tel {
+        box-shadow: $shadow2;
+        border-radius: 5px;
+      }
     }
   }
 
   .catalog__block {
     position: relative;
-    z-index: 9;
+
+    @include mq(lg) {
+      box-sizing: border-box;
+      padding: 0 20px;
+    }
+
+    @include mq(md) {
+      padding: 0 18px;
+    }
+
+    @include mq(s) {
+      padding: 0 0 0 13px;
+    }
 
     h4 {
       color: $light-blue;
@@ -91,6 +152,18 @@
       position: absolute;
       top: 53px;
       left: -28px;
+
+      @include mq(lg) {
+        left: -8px;
+      }
+
+      @include mq(md) {
+        left: -10px;
+      }
+
+      @include mq(s) {
+        left: -15px;
+      }
     }
 
     .rating {
@@ -100,6 +173,18 @@
       position: absolute;
       top: 146.58px;
       left: -28px;
+
+      @include mq(lg) {
+        left: -8px;
+      }
+
+      @include mq(md) {
+        left: -10px;
+      }
+
+      @include mq(s) {
+        left: -15px;
+      }
 
       span {
         display: block;
@@ -116,8 +201,6 @@
         position: absolute;
         top: 11px;
         left: 7px;
-
-
       }
 
       &__empty {
@@ -134,7 +217,6 @@
           background: url("../img/catalog/star-full.png") no-repeat center/cover;
         }
       }
-
     }
 
     section {
@@ -144,6 +226,19 @@
       box-shadow: $shadow2;
       border: 2px solid $dark-red;
       position: relative;
+      z-index: 9;
+
+      @include mq(lg) {
+        padding: 28px 15px 24px;
+      }
+
+      @include mq(md) {
+        padding: 21px 15px 32px;
+      }
+
+      @include mq(xs) {
+        padding: 21px 12px 32px;
+      }
 
       .catalog__block-photo {
         display: flex;
@@ -151,23 +246,67 @@
         position: relative;
         z-index: 9;
 
+        @include mq(s) {
+          max-width: 540px;
+          margin: 0 auto;
+          flex-wrap: wrap;
+          align-items: flex-start;
+        }
+
         a {
           width: 15.92%;
           max-width: 180px;
           filter: drop-shadow($shadow2);
+          transition: all 0.5s ease-in-out;
 
           @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
             box-shadow: $shadow2;
           }
 
+          @include mq(s) {
+            width: 32%;
+          }
+
+          @include mq(xs) {
+            width: 48%;
+            min-width: 121px;
+            max-width: 100%;
+          }
+
           img {
             width: 100%;
+          }
+
+          &:first-child {
+
+            @include mq(s) {
+              margin-bottom: 10px;
+            }
+
+            @include mq(xs) {
+              margin-bottom: 0;
+            }
+          }
+
+          &:nth-child(3), &:nth-child(4) {
+
+            @include mq(xs) {
+              margin: 10px 0;
+            }
+          }
+
+          &:hover {
+            box-shadow: $shadow1;
           }
         }
       }
 
       ul {
         margin: 26px 0;
+
+        @include mq(md) {
+          margin: 19px 0 14px;
+        }
 
         li {
           margin-bottom: 10.5px;
@@ -178,6 +317,11 @@
             span {
               display: inline-block;
               width: 195px;
+
+              @include mq(xs) {
+                width: auto;
+                margin-right: 5px;
+              }
             }
           }
 
@@ -197,43 +341,96 @@
         }
       }
 
-      a.clip {
-        width: 59px;
-        height: 59px;
-        background: url("../img/catalog/play.jpg") no-repeat center/cover;
-        border-radius: 50%;
-        position: relative;
+      figure.videos {
+        display: flex;
+        align-items: center;
         position: absolute;
         top: 205px;
         left: calc(50% + 5px);
-        transform: translateX(-50%);
 
-        &:after {
-          content: "посмотрите видеообзор ботинок";
-          display: block;
-          font-family: $r, sans-serif;
-          font-size: 16px;
-          line-height: 16px;
-          text-align: center;
+        @include mq(xl) {
+          left: 48%;
+        }
+
+        @include mq(lg) {
+          position: static;
+          margin-top: 15px;
+        }
+
+        a {
+          width: 59px;
+          height: 59px;
+          background: url("../img/catalog/play.jpg") no-repeat center/cover;
+          border-radius: 50%;
+          position: relative;
+          transition: all 0.5s ease-in-out;
+
+          @include mq(xs) {
+            width: 49px;
+            height: 49px;
+          }
+
+          &:after {
+            content: "";
+            display: block;
+            width: 54px;
+            height: 22px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left: 51px;
+            transform: translateY(-50%);
+            pointer-events: none;
+
+            @include mq(xs) {
+              width: 45px;
+              height: 18px;
+              left: 42px;
+            }
+          }
+
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        h6 {
+          text-transform: none;
           color: #7e8299;
-          width: 252px;
-          padding: 3px 0;
-          background: #fff;
-          position: absolute;
-          top: 50%;
-          right: -243px;
-          transform: translateY(-50%);
+          box-sizing: border-box;
+          position: relative;
+          z-index: 11;
+          pointer-events: none;
+          margin-left: -9px;
+
+          @include mq(xs) {
+            width: calc(100% - 49px);
+            margin-left: 4px;
+          }
         }
       }
 
       .catalog__block-img {
-        position: relative;
         position: absolute;
         pointer-events: none;
+
+        @include mq(md) {
+          position: relative;
+          margin-left: auto;
+        }
+
+        @include mq(xs) {
+          width: 118%;
+          min-width: 294px;
+        }
 
         img {
           position: relative;
           z-index: 8;
+
+          @include mq(md) {
+            width: 100%;
+          }
         }
 
         span {
@@ -244,10 +441,25 @@
           color: $light-blue;
           opacity: .4;
           position: absolute;
+
+          @include mq(lg) {
+            font-size: 62px;
+          }
+
+          @include mq(s) {
+            font-size: 50px;
+            max-width: 130px;
+            text-align: center;
+          }
+
+          @include mq(xs) {
+            font-size: 36px;
+            max-width: 109px;
+          }
         }
       }
 
-      h6 {
+      >h6 {
         text-transform: uppercase;
         text-align: right;
         color: #7e8299;
@@ -255,6 +467,21 @@
         position: absolute;
         bottom: 32px;
         right: 35px;
+
+        @include mq(lg) {
+          right: 15px;
+        }
+
+        @include mq(md) {
+          position: static;
+          max-width: 100%;
+          text-align: left;
+          margin-top: 15px;
+        }
+
+        @include mq(s) {
+          text-align: center;
+        }
 
         span {
           color: #d53e58;
@@ -268,8 +495,37 @@
         justify-content: space-between;
         margin-top: 25px;
 
+        @include mq(lg) {
+          width: calc(100% - 185px);
+        }
+
+        @include mq(md) {
+          width: 100%;
+        }
+
+        @include mq(s) {
+          max-width: 400px;
+          margin: 25px auto 0;
+          display: block;
+        }
+
         .form-group {
           width: 280px;
+
+          @include mq(lg) {
+            width: 31%;
+          }
+
+          @include mq(s) {
+            width: 100%;
+          }
+
+          &.tel {
+
+            @include mq(s) {
+              margin: 10px 0;
+            }
+          }
 
           &.order {
             width: 100%;
@@ -278,11 +534,23 @@
             bottom: -80px;
             left: 50%;
             transform: translateX(-50%);
+
+            @include mq(s) {
+              max-width: 380px;
+            }
           }
         }
 
         .select-box {
           width: 280px;
+
+          @include mq(lg) {
+            width: 31%;
+          }
+
+          @include mq(s) {
+            width: 100%;
+          }
 
           .jq-selectbox {
             width: 100%;
@@ -366,16 +634,25 @@
       content: "";
       display: block;
       position: absolute;
-      z-index: -1;
     }
 
     &:after {
+      /* скрыть на lg */
       width: 505px;
       height: 463px;
       background: url("../img/fir.png") no-repeat center/contain;
+
+      @include mq(lg) {
+        display: none;
+      }
     }
 
     &.lux {
+      z-index: 14;
+
+      @include mq(xl) {
+        z-index: 15;
+      }
 
       section {
 
@@ -383,10 +660,33 @@
           top: 90px;
           right: 12.73px;
 
+          @include mq(lg) {
+            top: 165px;
+            right: -35px;
+          }
+
+          @include mq(md) {
+            top: 0;
+            right: 0;
+            max-width: 460px;
+          }
+
+          @include mq(xs) {
+            right: 15px;
+          }
 
           span {
             top: 209px;
             left: -172px;
+
+            @include mq(lg) {
+              left: -170px;
+            }
+
+            @include mq(s) {
+              top: 58px;
+              left: 10px;
+            }
           }
         }
       }
@@ -397,16 +697,37 @@
         background: url("../img/catalog/1.png") no-repeat center/cover;
         bottom: -349.83px;
         left: -413px;
+
+        @include mq(xl) {
+          display: none;
+        }
       }
 
       &:after {
         bottom: -124.57px;
         left: -217px;
+
+        @include mq(xxl) {
+          left: -157px;
+        }
+
+        @include mq(xl) {
+          left: -107px;
+        }
       }
     }
 
     &.brown {
-      margin: 170px auto;
+      margin: 190px auto;
+      z-index: 14;
+
+      @include mq(xl) {
+        margin: 170px auto;
+      }
+
+      @include mq(md) {
+        margin: 135px auto;
+      }
 
       .rating {
 
@@ -421,9 +742,37 @@
           top: 72px;
           right: -12.99px;
 
+          @include mq(xl) {
+            right: -32.99px;
+          }
+
+          @include mq(lg) {
+            top: 145px;
+            right: -50px;
+          }
+
+          @include mq(md) {
+            top: 0;
+            right: -20px;
+            max-width: 475px;
+          }
+
+          @include mq(xs) {
+            right: 5px;
+          }
+
           span {
             top: 227px;
             left: -182px;
+
+            @include mq(lg) {
+              left: -180px;
+            }
+
+            @include mq(s) {
+              top: 76px;
+              left: 0;
+            }
           }
         }
       }
@@ -436,10 +785,19 @@
         bottom: -164.57px;
         right: -236.7px;
         transform: scale(-1, 1);
+
+        @include mq(xxl) {
+          right: -156.7px;
+        }
+
+        @include mq(xl) {
+          right: -106.7px;
+        }
       }
     }
 
     &.black {
+      z-index: 13;
 
       section {
 
@@ -447,9 +805,37 @@
           top: 56.23px;
           right: -1.83px;
 
+          @include mq(xl) {
+            right: -21.83px;
+          }
+
+          @include mq(lg) {
+            top: 130px;
+            right: -37px;
+          }
+
+          @include mq(md) {
+            top: 0;
+            right: 0;
+            max-width: 485px;
+          }
+
+          @include mq(xs) {
+            right: 20px;
+          }
+
           span {
             top: 242.77px;
             left: -162.72px;
+
+            @include mq(lg) {
+              left: -160.72px;
+            }
+
+            @include mq(s) {
+              top: 91.77px;
+              left: 19.28px;
+            }
           }
         }
       }
@@ -460,16 +846,33 @@
         background: url("../img/catalog/2.png") no-repeat center/cover;
         bottom: 1.84px;
         right: -535.33px;
+
+        @include mq(xl) {
+          display: none;
+        }
       }
 
       &:after {
         bottom: -204.57px;
         left: -250px;
+
+        @include mq(xxl) {
+          left: -150px;
+        }
+
+        @include mq(xxl) {
+          left: -100px;
+        }
       }
     }
 
     &.howard {
       margin: 170px auto;
+      z-index: 12;
+
+      @include mq(md) {
+        margin: 135px auto;
+      }
 
       .rating {
 
@@ -484,9 +887,38 @@
           top: 173px;
           right: 10.65px;
 
+          @include mq(lg) {
+            top: 248px;
+            right: -35px;
+          }
+
+          @include mq(md) {
+            top: 0;
+            right: 0;
+            max-width: 420px;
+          }
+
+          @include mq(xs) {
+            width: 111%;
+            min-width: 277px;
+          }
+
           span {
             top: 126px;
             left: -214px;
+
+            @include mq(lg) {
+              left: -212px;
+            }
+
+            @include mq(s) {
+              top: 25px;
+              left: -32px;
+            }
+
+            @include mq(xs) {
+              left: -5px;
+            }
           }
         }
       }
@@ -497,19 +929,30 @@
         background: url("../img/catalog/3.png") no-repeat center/cover;
         bottom: -203.97px;
         left: -475px;
+
+        @include mq(xl) {
+          display: none;
+        }
       }
 
       &:after {
         bottom: -185.57px;
         right: -264.7px;
         transform: scale(-1, 1);
+
+        @include mq(xxl) {
+          right: -154.7px;
+        }
+
+        @include mq(xl) {
+          right: -104.7px;
+        }
       }
     }
   }
 
   .catalog__spray {
     position: relative;
-    z-index: 9;
 
     h4 {
       margin: 0 auto;
@@ -519,6 +962,10 @@
       text-align: center;
       color: $light-blue;
       margin-bottom: 17px;
+
+      @include mq(md) {
+        margin: 1px auto 37px;
+      }
     }
 
     section {
@@ -528,6 +975,21 @@
       display: flex;
       justify-content: space-between;
       position: relative;
+      z-index: 9;
+
+      @include mq(lg) {
+        padding-right: 11%;
+      }
+
+      @include mq(md) {
+        flex-wrap: wrap;
+        background: $white;
+        padding: 0 20px 32px;
+      }
+
+      @include mq(s) {
+        justify-content: center;
+      }
 
       .catalog__spray-img {
         display: flex;
@@ -535,18 +997,65 @@
         top: -24px;
         left: 23px;
 
+        @include mq(md) {
+         position: static;
+          margin: -3% auto 0px;
+        }
+
+        @include mq(s) {
+          margin-top: -5%;
+        }
+
+        @include mq(xs) {
+          width: 100%;
+          justify-content: center;
+        }
+
         figure {
 
+          @include mq(xs) {
+            width: 38%;
+            min-width: 113px;
+          }
+
+          img {
+
+            @include mq(xs) {
+              width: 100%;
+            }
+          }
         }
 
         .price {
           margin-top: 61px;
           margin-left: 17px;
+
+          @include mq(md) {
+            margin-top: 84px;
+          }
+
+          @include mq(xs) {
+            margin-left: 10px;
+          }
+
+          span {
+
+            &.new-price {
+
+              @include mq(xs) {
+                display: block;
+              }
+            }
+          }
         }
       }
 
       ul {
         margin-top: 50px;
+
+        @include mq(md) {
+          margin-top: 0;
+        }
 
         li {
           position: relative;
@@ -574,6 +1083,12 @@
       form {
         width: 280px;
 
+        @include mq(s) {
+          width: 100%;
+          max-width: 380px;
+          margin-top: 35px;
+        }
+
         .form-group {
 
           &.tel {
@@ -584,11 +1099,15 @@
     }
 
     &:before, &:after {
+      /* скрыть на xl */
       content: "";
       display: block;
       background: url("../img/pine-cone.png") no-repeat center/contain;
       position: absolute;
-      z-index: -1;
+
+      @include mq(xl) {
+        display: none;
+      }
     }
 
     &:before {
@@ -604,6 +1123,10 @@
       transform: matrix(-0.81, -0.59, -0.59, 0.81, 0, 0);
       top: -54px;
       right: -283.21px;
+
+      @include mq(xxl) {
+        right: -223.21px;
+      }
     }
   }
 }
